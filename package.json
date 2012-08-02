@@ -1,0 +1,19 @@
+{
+	"author": {
+		"name": "Sam Holmes",
+		"url": "http://github.com/samholmes"
+	},
+	"name": "kava",
+	"description": "A simple key-value store for mysql.",
+	"version": "0.1.0-alpha",
+	"main": "index.js",
+	"dependencies": {
+		"mysql": "0.9.x"
+	},
+	"devDependencies": {},
+	"scripts": {},
+	"optionalDependencies": {},
+	"engines": {
+		"node": "*"
+	}
+}
