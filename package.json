@@ -5,7 +5,7 @@
 	},
 	"name": "kava",
 	"description": "A simple key-value store for mysql.",
-	"version": "0.1.0-alpha",
+	"version": "0.1.1-alpha",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/samholmes/kava"

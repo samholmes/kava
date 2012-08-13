@@ -33,9 +33,12 @@ module.exports = {
 		
 		util.inherits(Store, events.EventEmitter);
 		
-		Store.prototype.save = function(){
+		Store.prototype.save = function(cb){
+			cb = cb || new Function;
+			
 			var that = this;
 			var operations = 0;
+			var counter = 0;
 			
 			for (var key in that) if (that.hasOwnProperty(key))
 			{
@@ -44,10 +47,15 @@ module.exports = {
 				if (saved[key] !== value)
 				{
 					saved[key] = value;
+					++counter;
+					
 					db.query("INSERT exchange_settings ("+keyColumn+", "+valueColumn+") VALUES (?, ?) ON DUPLICATE KEY UPDATE "+valueColumn+" = ?",
 						[key, value, value], 
 						function(err, results){
-							if (err) return that.emit('error', err);
+							if (err) that.emit('error', err);
+							
+							if (--counter === 0)
+								cb();
 						});
 				}
 			}
