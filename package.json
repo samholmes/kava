@@ -12,7 +12,7 @@
 	},
 	"main": "index.js",
 	"dependencies": {
-		"mysql": "0.9.x"
+		"mysql": "2.18.x"
 	},
 	"devDependencies": {},
 	"scripts": {},
